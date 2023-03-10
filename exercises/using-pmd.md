@@ -21,13 +21,14 @@ return -1;
 
 
 * vrai positif :
-![image](https://user-images.githubusercontent.com/113097128/224299466-c7b53c2b-a22f-46a1-87d0-fceec35d2590.png)
+PMD nous indique que System.(out|err).print sont habituellement utilisés pour débugguer et peut rester dans la code source même en production. L'utilisation d'un logger qu'on peut activer/désactiver et ainsi éviter de polluer la sortie standard.
 
 dans classe StandAlone.java
+
 final Instant start = Instant.now();
 image.write(algo.cluster(image.getPixels()), out);
 //CHECKSTYLE: stop all
 System.out.println(“time=” + Duration.between(start, Instant.now()).toMillis());
 //CHECKSTYLE: resume all
 
-Au lieu de System.out.println, il vaudrait mieux utiliser un logger pour éviter de “polluer” la sortie dans la console.
+=>  Logger.getGlobal().info("time=" + Duration.between(start, Instant.now()).toMillis());
