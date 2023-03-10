@@ -21,7 +21,7 @@ return -1;
 
 
 * vrai positif :
-PMD nous indique que System.(out|err).print sont habituellement utilisés pour débugguer et peut rester dans la code source même en production. L'utilisation d'un logger qu'on peut activer/désactiver et ainsi éviter de polluer la sortie standard.
+PMD nous indique que System.(out|err).print est habituellement utilisé pour débugguer et peut rester dans la code source même en production. L'utilisation d'un logger qu'on peut activer/désactiver est à privilégier afin d'éviter de polluer la sortie standard.
 
 dans classe StandAlone.java
 
