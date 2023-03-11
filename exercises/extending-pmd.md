@@ -22,8 +22,10 @@ You can find more information on extending PMD in the following link: https://pm
 Use your rule with different projects and describe you findings below. See the [instructions](../sujet.md) for suggestions on the projects to use.
 
 ## Answer
+
 We were not able to use PMD designer because of the javaFX version which was wrong, but we wrote a rule to find nested if statements:
 
+```
 <?xml version="1.0"?>
 
 <ruleset name="Custom Rules">
@@ -48,12 +50,14 @@ We were not able to use PMD designer because of the javaFX version which was wro
     </properties>
     </rule>
 </ruleset>
-
-I used the following command to look after 3 or more nested IF statements, and PMD detected some in : commons-lang/src/test/java/org/apache/commons/lang3/SystemUtilsTest
+```
+I used the following command to look after 3 or more nested IF statements:
+``./run.sh pmd -d /home/blanche/IdeaProjects/commons-collections/src -R /home/blanche/Documents/VV/rulesetcustomtest.xm``
+, and PMD detected some in : commons-lang/src/test/java/org/apache/commons/lang3/SystemUtilsTest
 
 also in commons-collections/src/main/java/org/apache/commons/collections4/trie/AbstractPatriciaTrie, here is the code example:
 
-
+```
 if (isValidUplink(node.parent.left, node.parent)) {
             if (node.parent.left == root) {
                 if (root.isEmpty()) {
