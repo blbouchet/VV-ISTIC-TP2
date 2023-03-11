@@ -22,4 +22,44 @@ You can find more information on extending PMD in the following link: https://pm
 Use your rule with different projects and describe you findings below. See the [instructions](../sujet.md) for suggestions on the projects to use.
 
 ## Answer
+We were not able to use PMD designer because of the javaFX version which was wrong, but we wrote a rule to find nested if statements:
 
+<?xml version="1.0"?>
+
+<ruleset name="Custom Rules">
+    <description>
+        Custom rules
+    </description>
+    <rule
+    name="MandatoryBracesOnIf"
+    language="java"
+    message="detect the use of three or more nested if statements"
+    class="net.sourceforge.pmd.lang.rule.XPathRule">
+    <description>
+        detect the use of three or more nested if statements
+    </description>
+    <priority>3</priority>
+    <properties>
+        <property name="xpath">
+        <value><![CDATA[
+            //IfStatement[descendant :: IfStatement[descendant :: IfStatement]]
+        ]]></value>
+        </property>
+    </properties>
+    </rule>
+</ruleset>
+
+I used the following command to look after 3 or more nested IF statements, and PMD detected some in : commons-lang/src/test/java/org/apache/commons/lang3/SystemUtilsTest
+also in commons-collections/src/main/java/org/apache/commons/collections4/trie/AbstractPatriciaTrie, here is the code example:
+if (isValidUplink(node.parent.left, node.parent)) {
+            if (node.parent.left == root) {
+                if (root.isEmpty()) {
+                    return null;
+                }
+                return root;
+
+            }
+            return node.parent.left;
+        }
+        return followRight(node.parent.left);
+    }
