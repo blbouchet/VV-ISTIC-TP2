@@ -50,7 +50,10 @@ We were not able to use PMD designer because of the javaFX version which was wro
 </ruleset>
 
 I used the following command to look after 3 or more nested IF statements, and PMD detected some in : commons-lang/src/test/java/org/apache/commons/lang3/SystemUtilsTest
+
 also in commons-collections/src/main/java/org/apache/commons/collections4/trie/AbstractPatriciaTrie, here is the code example:
+
+
 if (isValidUplink(node.parent.left, node.parent)) {
             if (node.parent.left == root) {
                 if (root.isEmpty()) {
