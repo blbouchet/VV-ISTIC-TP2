@@ -2,6 +2,7 @@
 
 Put here all the code created for this exercise
 
+```
 <?xml version="1.0"?>
 
 <ruleset name="Custom Rules">
@@ -26,3 +27,4 @@ Put here all the code created for this exercise
     </properties>
     </rule>
 </ruleset>
+```
