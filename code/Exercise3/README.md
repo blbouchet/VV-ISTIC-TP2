@@ -1,6 +1,5 @@
-# Code of your exercise
 
-Put here all the code created for this exercise
+Voici la ruleset qui a permis de détecter l'usage de 3 ou plus if-statements:
 
 ```
 <?xml version="1.0"?>
